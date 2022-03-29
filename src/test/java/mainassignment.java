@@ -1,7 +1,6 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -17,7 +16,7 @@ public class mainassignment {
     public static int transaction[] = new int[100];
     public static int i = 0;
     static TakesScreenshot tsc;
-
+    @BeforeTest
     public static void main(String[] args) throws InterruptedException, NoSuchElementException {
         System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32 (1)\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -39,7 +38,6 @@ public class mainassignment {
         File scr = tsc.getScreenshotAs(OutputType.FILE);
     }
 
-    @BeforeTest
     //Method to open url
     public static void openurl() throws InterruptedException {
         //opens url
@@ -47,7 +45,6 @@ public class mainassignment {
 
         //maximizes the window size
         driver.manage().window().maximize();
-        Assert.assertTrue(false);
     }
 
     //method to find element using xpath
@@ -82,8 +79,6 @@ public class mainassignment {
 
         //interacting with alert box
         driver.switchTo().alert().accept();
-
-        Assert.assertTrue(false);
     }
 
     //method to open a new account for added customer
@@ -116,8 +111,6 @@ public class mainassignment {
 
         //accepting the alert box message after noting down number
         driver.switchTo().alert().accept();
-
-        Assert.assertTrue(false);
     }
 
     //logging in with the newly created account
@@ -137,8 +130,6 @@ public class mainassignment {
 
         //click on Login button
         findelement("/html/body/div/div/div[2]/div/form/button").click();
-
-        Assert.assertTrue(false);
     }
 
     //method to deposit money into account
@@ -183,7 +174,6 @@ public class mainassignment {
         if (Integer.toString(balance).equals(balanceonpage))
             System.out.println("Balance has been updated");
 
-        Assert.assertTrue(false);
     }
 
     //method to withdraw money from account
@@ -227,7 +217,6 @@ public class mainassignment {
         String errormessaage =  findelement("/html/body/div/div/div[2]/div/div[4]/div/span").getText();
         System.out.println(errormessaage);
 
-        Assert.assertTrue(false);
     }
 
 
@@ -272,7 +261,7 @@ public class mainassignment {
         //clicking on logout button
         findelement("/html/body/div/div/div[1]/button[2]").click();
 
-        Assert.assertTrue(false);
+
     }
 
 
@@ -281,7 +270,6 @@ public class mainassignment {
     public static void driverquit() {
         driver.close();
         driver.quit();
-        Assert.assertTrue(false);
     }
 
 }

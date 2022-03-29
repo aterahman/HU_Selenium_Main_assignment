@@ -50,7 +50,7 @@ public class mainassignment {
     }
 
     //method to add a new customer on the site
-    @Test(priority = 1)
+    @Test
     public static void createacc() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         //clicking on Bank Manager Login Button
@@ -77,7 +77,7 @@ public class mainassignment {
     }
 
     //method to open a new account for added customer
-    @Test(priority = 2)
+    @Test
     public static void openacc() throws InterruptedException {
         //going to open account tab
         findelement("/html/body/div/div/div[2]/div/div[1]/button[2]").click();
@@ -108,7 +108,7 @@ public class mainassignment {
     }
 
     //logging in with the newly created account
-    @Test(priority = 3)
+    @Test
     public static void login() throws InterruptedException {
         //going back to the homepage
         findelement("/html/body/div/div/div[1]/button[1]").click();
@@ -127,7 +127,7 @@ public class mainassignment {
     }
 
     //method to deposit money into account
-    @Test(priority = 4)
+    @Test
     public static void deposit() throws InterruptedException {
         String balanceonpage = "";
 
@@ -171,7 +171,7 @@ public class mainassignment {
     }
 
     //method to withdraw money from account
-    @Test(priority = 5)
+    @Test
     public static void withdraw() throws InterruptedException {
         String balanceonpage = "";
         //clicking on withdraw tab
@@ -213,6 +213,9 @@ public class mainassignment {
 
     }
 
+
+    //method to verify transactions
+    @Test
     public static void transactions() {
         int j = 0;
         String type="";
@@ -257,6 +260,7 @@ public class mainassignment {
 
 
     @AfterTest
+    //method to close and quit driver
     public static void driverquit() {
         driver.close();
         driver.quit();

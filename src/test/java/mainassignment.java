@@ -47,7 +47,7 @@ public class mainassignment {
 
         //maximizes the window size
         driver.manage().window().maximize();
-        Assert.assertTrue(true);
+
     }
 
     //method to find element using xpath
@@ -83,7 +83,6 @@ public class mainassignment {
         //interacting with alert box
         driver.switchTo().alert().accept();
 
-        Assert.assertTrue(true);
 
     }
 
@@ -164,8 +163,15 @@ public class mainassignment {
 
         //checking if balance has been updated accordingly
         balanceonpage = findelement("/html/body/div/div/div[2]/div/div[2]/strong[2]").getText();
-        if (Integer.toString(balance).equals(balanceonpage))
-            System.out.println("Balance has been updated");
+
+        try {
+            Assert.assertEquals(Integer.toString(balance), (balanceonpage));
+            System.out.println("Test Passed");
+        }
+        catch (Throwable e)
+        {
+            System.out.println("Test Failed");
+        }
 
         //entering value in the Amount to Be Deposited textbox
         findelement("/html/body/div/div/div[2]/div/div[4]/div/form/div/input").sendKeys("1000");
@@ -180,10 +186,16 @@ public class mainassignment {
 
         //checking if balance has been updated accordingly
         balanceonpage = findelement("/html/body/div/div/div[2]/div/div[2]/strong[2]").getText();
-        if (Integer.toString(balance).equals(balanceonpage))
-            System.out.println("Balance has been updated");
 
-        Assert.assertTrue(true);
+        try {
+            Assert.assertEquals(Integer.toString(balance), (balanceonpage));
+            System.out.println("Passed");
+        }
+        catch (Throwable e)
+        {
+            System.out.println("Test Failed");
+        }
+
 
     }
 
@@ -209,9 +221,15 @@ public class mainassignment {
 
         //checking if balance has been updated accordingly
         balanceonpage = findelement("/html/body/div/div/div[2]/div/div[2]/strong[2]").getText();
-        if (Integer.toString(balance).equals(balanceonpage))
-            System.out.println("Balance has been updated");
 
+        try {
+            Assert.assertEquals(Integer.toString(balance), balanceonpage);
+            System.out.println("Test passed");
+        }
+        catch (Throwable e)
+        {
+            System.out.println("test failed");
+        }
 
         Thread.sleep(1000);
 
